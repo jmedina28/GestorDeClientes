@@ -1,9 +1,7 @@
 import csv
 import copy
-import config
-import helpers
+import config, database as db, helpers
 import unittest
-import database as db
 
 class TestDatabase(unittest.TestCase):
 
