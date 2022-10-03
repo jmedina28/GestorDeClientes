@@ -1,8 +1,11 @@
+import sys
+import pathlib
+sys.path.append(str(pathlib.Path().resolve()) + './gestor')
+import helpers
+import config, database as db
+import unittest
 import csv
 import copy
-import config, database as db, helpers
-import unittest
-
 class TestDatabase(unittest.TestCase):
 
     def setUp(self):
