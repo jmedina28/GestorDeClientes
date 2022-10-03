@@ -1,3 +1,6 @@
+import sys
+import pathlib
+sys.path.append(str(pathlib.Path().resolve()) + '/gestor')
 import helpers
 import config, database as db
 import unittest
