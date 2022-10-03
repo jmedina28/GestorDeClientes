@@ -1,6 +1,7 @@
 import sys
 import pathlib
-sys.path.append(str(pathlib.Path().resolve()) + './gestor')
+print(str(pathlib.Path().resolve()))
+sys.path.append(str(pathlib.Path().resolve()) + '/gestor')
 import helpers
 import config, database as db
 import unittest
@@ -51,9 +52,12 @@ class TestDatabase(unittest.TestCase):
         db.Clientes.borrar('15J')
         db.Clientes.modificar('28Z', 'Mariana', 'García')
         dni, nombre, apellido = None, None, None
-        with open(config.DATABASE_PATH, newline='\n') as fichero:
+        with open('./gestor/clientes.csv', newline='\n') as fichero:
             reader = csv.reader(fichero, delimiter=';')
             dni, nombre, apellido = next(reader)
         self.assertEqual(dni, '28Z')
         self.assertEqual(nombre, 'Mariana')
         self.assertEqual(apellido, 'García')
+
+if __name__ == '__main__':
+    unittest.main()
