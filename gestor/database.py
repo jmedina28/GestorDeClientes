@@ -18,9 +18,7 @@ class Cliente:
 class Clientes:
 
     lista = []
-    csv_file = './gestor/clientes.csv'
-    print(csv_file)
-    with open(csv_file, newline='\n') as fichero:
+    with open(config.DATABASE_PATH, newline='\n') as fichero:
         reader = csv.reader(fichero, delimiter=';')
         for dni, nombre, apellido in reader:
             cliente = Cliente(dni, nombre, apellido)
@@ -58,7 +56,7 @@ class Clientes:
 
     @staticmethod
     def guardar():
-        with open('./gestor/clientes.csv', 'w', newline='\n') as fichero:
+        with open(config.DATABASE_PATH, 'w', newline='\n') as fichero:
             writer = csv.writer(fichero, delimiter=';')
             for cliente in Clientes.lista:
                 writer.writerow((cliente.dni, cliente.nombre, cliente.apellido))
